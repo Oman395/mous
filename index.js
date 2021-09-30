@@ -41,7 +41,6 @@ function sort(dta, opts, callback) {
     var step = false;
     dta = dta.split("\n");
     dta.forEach((item, index) => {
-        console.log(localParsed);
         if (!step) {
             localParsed[item] = {};
             step = item;
@@ -58,17 +57,17 @@ function sort(dta, opts, callback) {
     });
 }
 
-function saveData(dta) {
+function saveData(dta, extfolder) {
     Object.keys(dta).forEach((item) => {
         if (!fs.existsSync(`Output(${file})`)) fs.mkdirSync(`Output(${file})`);
-        if (!fs.existsSync(`Output(${file})/${item.replace('\r', '')}`)) fs.mkdirSync(`Output(${file})/${item.replace('\r', '')}`);
+        if (!fs.existsSync(`Output(${file})/${extfolder}/`)) fs.mkdirSync(`Output(${file})/${extfolder}/`)
+        if (!fs.existsSync(`Output(${file})/${extfolder}/${item.replace('\r', '')}`)) fs.mkdirSync(`Output(${file})/${extfolder}/${item.replace('\r', '')}`);
         Object.keys(dta[item]).forEach((thing) => {
             var str = "";
             Object.keys(dta[item][thing]).forEach((that) => {
-                console.log(dta[item][thing]);
                 str += `${that}: ${dta[item][thing][that]}\n`;
             })
-            fs.writeFileSync(`Output(${file})/${item.replace('\r', '')}/${thing.replace('\r', '')}.txt`, str);
+            fs.writeFileSync(`Output(${file})/${extfolder}/${item.replace('\r', '')}/${thing.replace('\r', '')}.txt`, str);
         });
     })
 }
@@ -76,10 +75,8 @@ function saveData(dta) {
 function start() {
     getFile((dta) => {
         data = dta;
-        console.log(data);
         getSorting((dta1) => {
             options = dta1;
-            console.log(options);
             sort(data, options, (dta2) => {
                 parsed = (dta2);
                 loop();
@@ -108,7 +105,7 @@ function loop() {
                     })
                 }
             });
-            saveData(response);
+            saveData(response, answer);
             rl.close();
             loop();
         } else {
