@@ -29,7 +29,7 @@ function getSorting(callback) {
         input: process.stdin,
         output: process.stdout
     });
-    rl.question("What are the different labels of data? Please seperate each one with a space.", (answer) => {
+    rl.question("What are the different labels of data? Please seperate each one with a space. ", (answer) => {
         const args = answer.split(" ");
         rl.close();
         callback(args);
