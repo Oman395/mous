@@ -126,7 +126,7 @@ function write(returnedData, args) {
             })
         })
     } else {
-        if (!fs.existsSync(`Output(${file}, ${args[0]})`)) fs.mkdirSync(`Output(${file}, ${args[0]}})`);
+        if (!fs.existsSync(`Output(${file}, ${args[0]})`)) fs.mkdirSync(`Output(${file}, ${args[0]})`);
         var path = `Output(${file}, ${args[0]}})`;
         Object.keys(returnedData).forEach((one) => {
             if (!fs.existsSync(`${path}/${one.replace("\r", '')}`)) fs.mkdirSync(`${path}/${one.replace("\r", '')}`);
