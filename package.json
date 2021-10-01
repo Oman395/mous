@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
-    "build": "pkg ."
+    "build": "pkg .",
+    "never": "echo gonna give you up"
   },
   "author": "Oran RH",
   "license": "MIT",
