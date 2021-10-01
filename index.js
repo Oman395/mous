@@ -1,5 +1,5 @@
-import fs from "fs";
-import readline from 'readline';
+const fs = require("fs");
+const readline = require("readline");
 var data;
 var file;
 var options;

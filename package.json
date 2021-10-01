@@ -1,7 +1,6 @@
 {
-  "name": "mous-data-sorting-folder-sorting",
+  "name": "mous",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
@@ -12,6 +11,10 @@
   "dependencies": {
     "readline": "^1.3.0"
   },
+  "pkg": {
+    "targets": ["host"],
+    "outputPath": "mous-executable"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Oman395/mous.git"
@@ -19,6 +22,7 @@
   "bugs": {
     "url": "https://github.com/Oman395/mous/issues"
   },
+  "bin": "index.js",
   "homepage": "https://github.com/Oman395/mous#readme",
   "description": "",
   "devDependencies": {
